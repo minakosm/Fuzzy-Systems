@@ -1,0 +1,36 @@
+%% Clear workspace , command window and close all windows
+clear
+clc
+close all 
+
+%% Create Mamdani Fuzzi Inference System
+boundaries = [-1 -1 -0.75 -0.5 -0.25 0 0.25 0.5 0.75 1 1];
+mf_names = ["NV", "NL", "NM", "NS", "ZR", "PS", "PM", "PL", "PV"];
+var_names = ["E", "dE", "dU"];
+
+fis = mamfis;
+fis = addInput(fis, [-1, 1], "Name", var_names(1));
+fis = addInput(fis, [-1, 1], "Name", var_names(2));
+fis = addOutput(fis, [-1, 1], "Name", var_names(3));
+
+for i = var_names
+    for j = 1:1:length(mf_names)
+        fis = addMF(fis, i, "trimf", [boundaries(j) boundaries(j+1) boundaries(j+2)], "Name", mf_names(j));
+    end
+end
+
+%% Create Rule List 
+%We correspond a number with the names of the member functions with (1)
+%being NV and (9) being PV
+c = [5 4 3 2 1 1 1 1 1];
+r = [5 6 7 8 9 9 9 9 9];
+ruleBase = toeplitz(c, r);
+ruleList=[];
+
+for i=1:length(ruleBase)
+    for j=1:length(ruleBase)
+        ruleList = [ruleList ; [i j ruleBase(length(ruleBase)+1-i, j) 1 1]];
+    end
+end
+
+fis = addRule(fis, ruleList);
