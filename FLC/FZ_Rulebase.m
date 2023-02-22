@@ -1,5 +1,4 @@
-%% Clear workspace , command window and close all windows
-clear
+%% Clear command window and close all windows
 clc
 close all 
 
@@ -25,7 +24,7 @@ end
 c = [5 4 3 2 1 1 1 1 1];
 r = [5 6 7 8 9 9 9 9 9];
 ruleBase = toeplitz(c, r);
-ruleBaseStr = strings();
+ruleBaseStr = strings();  %String representation of the RuleBase
 ruleList=[];
 
 for i=1:length(ruleBase(1,:))
@@ -34,6 +33,5 @@ for i=1:length(ruleBase(1,:))
         ruleBaseStr(i,j) = mf_names(ruleBase(i,j));
     end
 end
-
 fis = addRule(fis, ruleList);
-plotfis(fis);
+%writeFIS(fis);

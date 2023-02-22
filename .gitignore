@@ -1,0 +1,6 @@
+# ignore all .asv files
+/**/*.asv
+
+#ignore simulink simulation results
+slprj/
+

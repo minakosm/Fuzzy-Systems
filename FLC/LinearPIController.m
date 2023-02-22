@@ -1,6 +1,6 @@
 %% Clear workspace , command window and close all windows
-clear
 clc
+clear
 close all 
 
 %% Tune and configure the linear PI Controller
@@ -12,6 +12,7 @@ Gp = zpk([], [-1, -9], 10);
 
     %tuning process
     %We choose a zero close to our system strong pole -1
+
 %Gc = zpk(-1.3, 0, 1);
 %controlSystemDesigner(Gp, Gc);
 
