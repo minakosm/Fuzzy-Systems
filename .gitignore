@@ -4,3 +4,5 @@
 #ignore simulink simulation results
 slprj/
 
+#ignore 3d party files 
+/**/untitled.*
