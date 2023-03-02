@@ -31,9 +31,9 @@ obstacle = [5 0 ; 5 1 ; 6 1 ; 6 2 ; 7 2 ; 7 3 ; 10 3];
 init_theta = [0 -45 -90];
 u = 0.05;
 goal = [10 3.2];
-epsilon = 0.075;
+epsilon = 0.07;
 
-%% Start Car's Obstacle Avoidance Controler
+%% Start Car's Obstacle Avoidance Controller
 for i=1:3
     x = 4.1;
     y = 0.3;
@@ -42,7 +42,7 @@ for i=1:3
     while(1)
         [dh, dv] = getDistances(x(end),y(end));
         if(isnan(dh*dv))
-            fprintf("\nHit Wall at (%f, %f) at step %d\n\n",x(end),y(end));
+            fprintf("\nHIT WALL at (%f, %f) at step %d\n\n",x(end),y(end));
             break;
         end
 
