@@ -122,7 +122,7 @@ end
 % OA / NumOfRules
 figure();
 hold on; grid on;
-scatter(reshape(gridRulesNum,1,[]), reshape(gridOA,1,[]), "r*");
+scatter(reshape(gridOA,1,[]), reshape(gridRulesNum,1,[]), "r*");
 xlabel("Overall Accuracy");
 ylabel("Number of Rules");
 title("Overall Accuracy relevant to Number of Rules");
